@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobrimed — 3 Layouts</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8860B;
+  --gold-l: #D4A843;
+  --gold-ll: #F0D080;
+  --gold-bg: #FBF6E8;
+  --navy: #0C1824;
+  --navy2: #162030;
+  --cream: #FAF7F0;
+  --white: #FFFFFF;
+  --text: #111008;
+  --text2: #5C5840;
+  --text3: #A8A088;
+  --border: #EAE4D0;
+  --border2: #F0EBD8;
+  --green: #1A6B3C;
+  --green-bg: #EDFAF3;
+  --red: #B83020;
+  --red-bg: #FEF0EE;
+  --amber: #A05010;
+  --amber-bg: #FFF3E0;
+  --blue: #1848A0;
+  --blue-bg: #EEF4FF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #E8E4D8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  gap: 0;
+}
+
+.nav-tab {
+  flex: 1;
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: rgba(12,24,36,0.92);
+  color: rgba(255,255,255,0.4);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid transparent;
+}
+
+.nav-tab.active {
+  color: var(--gold-l);
+  border-bottom-color: var(--gold);
+}
+
+.nav-tab:hover { color: rgba(255,255,255,0.8); }
+
+/* ── PAGES ── */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ════════════════════════════════════════
+   PAGE 1 — LANDING PAGE
+════════════════════════════════════════ */
+#landing {
+  background: var(--cream);
+  padding-top: 48px;
+}
+
+/* Hero */
+.hero {
+  background: var(--navy);
+  padding: 80px 24px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(184,134,11,0.12);
+  border: 1px solid rgba(184,134,11,0.25);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold-l);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(38px, 8vw, 60px);
+  font-weight: 900;
+  color: #FAFAF5;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-l);
+}
+
+.hero-sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 36px;
+  max-width: 460px;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover { background: var(--gold-l); transform: translateY(-1px); }
+
+.btn-ghost {
+  padding: 14px 24px;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover { border-color: rgba(255,255,255,0.35); color: white; }
+
+/* Stats strip */
+.stats-strip {
+  background: var(--gold);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+
+.stat-n {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.stat-l {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(12,24,36,0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+/* Problem section */
+.section { padding: 60px 24px; max-width: 640px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.section-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text2);
+  margin-bottom: 28px;
+}
+
+/* Problem cards */
+.problem-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.problem-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.pc-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.pc-text {}
+.pc-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.pc-desc { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
+
+/* How it works */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.step {
+  background: var(--white);
+  padding: 18px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold-l);
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-info {}
+.step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.step-desc { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
+
+/* Pricing */
+.pricing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  position: relative;
+}
+
+.pricing-card.featured {
+  background: var(--navy);
+  border-color: var(--gold);
+}
+
+.pricing-popular {
+  position: absolute;
+  top: -10px; right: 16px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.plan-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.featured .plan-name { color: rgba(255,255,255,0.4); }
+
+.plan-price {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.featured .plan-price { color: var(--gold-l); }
+
+.plan-period { font-size: 12px; color: var(--text3); margin-bottom: 16px; }
+.featured .plan-period { color: rgba(255,255,255,0.35); }
+
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+
+.plan-features li {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13.5px; color: var(--text2);
+}
+
+.featured .plan-features li { color: rgba(255,255,255,0.7); }
+
+.plan-features li::before {
+  content: '✓';
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--gold-bg);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.featured .plan-features li::before {
+  background: rgba(184,134,11,0.2);
+  color: var(--gold-l);
+}
+
+.plan-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--text);
+}
+
+.featured .plan-btn {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+/* CTA */
+.cta-block {
+  background: var(--navy);
+  margin: 0 0 0;
+  padding: 50px 24px;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FAFAF5;
+  margin-bottom: 10px;
+}
+
+.cta-sub { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+
+/* ════════════════════════════════════════
+   PAGE 2 — DASHBOARD
+════════════════════════════════════════ */
+#dashboard {
+  background: var(--cream);
+  padding-top: 48px;
+}
+
+.dash-layout { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.dash-sidebar {
+  width: 200px;
+  background: var(--navy);
+  min-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 48px;
+  flex-shrink: 0;
+}
+
+.ds-logo {
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 6px;
+}
+
+.ds-logo-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FAFAF5;
+  letter-spacing: 0.03em;
+}
+
+.ds-logo-text span { color: var(--gold-l); }
+
+.ds-nav { padding: 6px 10px; flex: 1; }
+
+.ds-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.12s;
+  margin-bottom: 1px;
+}
+
+.ds-link:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); }
+.ds-link.active { background: rgba(184,134,11,0.12); color: var(--gold-l); }
+.ds-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.ds-pill {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 1px 5px;
+  border-radius: 999px;
+}
+
+.ds-footer {
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.ds-clinic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+}
+
+.ds-clinic-av {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--gold), #8B6010);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+
+.ds-clinic-name { font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.7); }
+.ds-clinic-plan { font-size: 10px; color: var(--gold); }
+
+/* Main */
+.dash-main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+.dash-topbar {
+  height: 52px;
+  background: rgba(250,247,240,0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  position: sticky;
+  top: 48px;
+  z-index: 10;
+}
+
+.dash-page-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+
+.ai-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--green-bg);
+  border: 1px solid #A0D8B8;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.ai-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s ease-in-out infinite;
+}
+
+.dash-content { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+/* Banner */
+.dash-banner {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.db-left {}
+.db-eye {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.db-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.db-sub { font-size: 12px; color: var(--text2); }
+
+.db-right { text-align: right; flex-shrink: 0; }
+.db-big {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.db-small { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+/* KPI */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.kpi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.kpi-label { font-size: 11px; color: var(--text2); font-weight: 500; margin-bottom: 8px; }
+.kpi-val {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.kpi-change { font-size: 11px; font-weight: 500; }
+.up { color: var(--green); }
+.neutral { color: var(--gold); }
+
+/* Panel */
+.panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.panel-head {
+  padding: 14px 18px 10px;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.panel-action { font-size: 11.5px; color: var(--gold); font-weight: 500; cursor: pointer; }
+
+/* Table rows */
+.t-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  gap: 12px;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.1s;
+}
+.t-row:last-child { border-bottom: none; }
+.t-row:hover { background: var(--cream); }
+
+.t-time { font-size: 11px; color: var(--text3); font-weight: 500; min-width: 34px; }
+.t-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.t-info { flex: 1; min-width: 0; }
+.t-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.t-proc { font-size: 11px; color: var(--text3); }
+
+.badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.badge-ok { background: var(--green-bg); color: var(--green); }
+.badge-pending { background: var(--amber-bg); color: var(--amber); }
+.badge-cancel { background: var(--red-bg); color: var(--red); }
+.badge-new { background: var(--blue-bg); color: var(--blue); }
+.badge-ai { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
+
+/* Chat rows */
+.c-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 11px 18px;
+  gap: 11px;
+  border-bottom: 1px solid var(--border2);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.c-row:last-child { border-bottom: none; }
+.c-row:hover { background: var(--cream); }
+.c-row.unread { background: var(--gold-bg); }
+
+.c-av {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy2);
+  color: var(--gold-l);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.c-info { flex: 1; min-width: 0; }
+.c-name { font-size: 13px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 5px; }
+.c-msg { font-size: 11.5px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+
+.c-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.c-time { font-size: 10px; color: var(--text3); }
+.c-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+/* ════════════════════════════════════════
+   PAGE 3 — BOOKING
+════════════════════════════════════════ */
+#booking {
+  background: var(--cream);
+  padding-top: 48px;
+  min-height: 100vh;
+}
+
+.booking-wrap {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.booking-clinic-logo {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+  border: 1.5px solid var(--gold);
+}
+
+.booking-clinic-logo svg { width: 22px; height: 22px; }
+
+.booking-clinic-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.booking-clinic-sub { font-size: 13px; color: var(--text2); }
+
+/* Step indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.step-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.2s;
+}
+
+.step-dot.done { background: var(--gold); }
+.step-dot.current { background: var(--navy); width: 24px; border-radius: 4px; }
+
+/* Booking card */
+.b-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.b-card-head {
+  padding: 14px 18px 10px;
+  border-bottom: 1px solid var(--border2);
+}
+
+.b-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.b-card-body { padding: 16px 18px; }
+
+/* Service list */
+.service-list { display: flex; flex-direction: column; gap: 8px; }
+
+.service-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.service-item:hover { border-color: var(--gold-ll); background: var(--gold-bg); }
+.service-item.selected { border-color: var(--gold); background: var(--gold-bg); }
+
+.srv-left { display: flex; align-items: center; gap: 10px; }
+.srv-icon { font-size: 20px; }
+.srv-name { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.srv-time { font-size: 11px; color: var(--text3); margin-top: 1px; }
+.srv-price { font-size: 13px; font-weight: 600; color: var(--gold); }
+
+/* Calendar mini */
+.mini-cal { }
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.cal-month {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cal-arrow {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text2);
+  background: var(--cream);
+}
+
+.cal-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.cal-day-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.cal-day:hover { background: var(--cream); color: var(--text); }
+.cal-day.empty { cursor: default; }
+.cal-day.today { font-weight: 700; color: var(--gold); }
+.cal-day.selected { background: var(--navy); color: var(--gold-l); }
+.cal-day.available { color: var(--text); }
+.cal-day.past { color: var(--border); cursor: default; }
+
+/* Time slots */
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.time-slot {
+  padding: 10px 8px;
+  border-radius: 9px;
+  border: 1.5px solid var(--border);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.time-slot:hover { border-color: var(--gold-ll); background: var(--gold-bg); color: var(--text); }
+.time-slot.selected { border-color: var(--gold); background: var(--gold-bg); color: var(--navy); font-weight: 600; }
+.time-slot.unavailable { color: var(--border); cursor: default; background: var(--cream); }
+
+/* Patient form */
+.form-field { margin-bottom: 14px; }
+.form-field label { display: block; font-size: 11.5px; font-weight: 600; color: var(--text2); letter-spacing: 0.04em; margin-bottom: 6px; }
+.form-field input, .form-field select {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 11px 13px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+.form-field input:focus, .form-field select:focus { border-color: var(--gold); background: white; }
+
+/* Confirm btn */
+.confirm-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--navy);
+  color: var(--gold-l);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.confirm-btn:hover { background: var(--navy2); transform: translateY(-1px); }
+
+.booking-trust {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .dash-sidebar { width: 160px; }
+  .ds-link span { display: none; }
+  .ds-link { justify-content: center; padding: 10px; }
+  .ds-pill { display: none; }
+  .ds-clinic-name, .ds-clinic-plan { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-tab active" onclick="showPage('landing', this)">🌐 Landing Page</div>
+  <div class="nav-tab" onclick="showPage('dashboard', this)">📊 Dashboard</div>
+  <div class="nav-tab" onclick="showPage('booking', this)">📅 Agendamento</div>
+</nav>
+
+<!-- ════ LANDING PAGE ════ -->
+<div id="landing" class="page active">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Funcionário Virtual com IA
+      </div>
+      <h1 class="hero-title">
+        Sua clínica atendida,<br><em>mesmo quando você não tá.</em>
+      </h1>
+      <p class="hero-sub">O Cobrimed cobre o dia que sua secretária não pode trabalhar. Confirma consultas, responde WhatsApp e agenda novos pacientes — automaticamente, 24h por dia.</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Começar grátis por 14 dias →</button>
+        <button class="btn-ghost">Ver como funciona</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-n">R$600</div>
+      <div class="stat-l">Recuperados por mês</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">3x</div>
+      <div class="stat-l">Menos faltas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">24h</div>
+      <div class="stat-l">Atendimento ativo</div>
+    </div>
+  </div>
+
+  <!-- Problem -->
+  <div class="section">
+    <div class="section-eyebrow">O problema</div>
+    <h2 class="section-title">Cada falta é dinheiro que não volta.</h2>
+    <p class="section-body">Com a nova reforma trabalhista, sua secretária trabalha menos dias. E no dia que ela não está, sua agenda para. Paciente não confirma. Cadeira fica vazia. Você perde.</p>
+
+    <div class="problem-cards">
+      <div class="problem-card">
+        <div class="pc-icon" style="background:#FEF0EE;">😤</div>
+        <div class="pc-text">
+          <div class="pc-title">Paciente não confirmou e não apareceu</div>
+          <div class="pc-desc">Consulta de R$200 perdida porque ninguém mandou lembrete no dia anterior.</div>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="pc-icon" style="background:#FFF3E0;">😰</div>
+        <div class="pc-text">
+          <div class="pc-title">Secretária faltou hoje</div>
+          <div class="pc-desc">Ninguém responde o WhatsApp. Paciente novo desiste e vai pra outra clínica.</div>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="pc-icon" style="background:#EEF4FF;">💸</div>
+        <div class="pc-text">
+          <div class="pc-title">Contratar outra pessoa dobra o custo</div>
+          <div class="pc-desc">R$3.500/mês por funcionário. Mais encargos. Mais gestão. Mais dor de cabeça.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section" style="padding-top:0;">
+    <div class="section-eyebrow">Como funciona</div>
+    <h2 class="section-title">Simples de configurar, poderoso no resultado.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-info">
+          <div class="step-title">Você cadastra sua clínica</div>
+          <div class="step-desc">Leva 5 minutos. Coloca horários, serviços e conecta seu WhatsApp.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-info">
+          <div class="step-title">A IA aprende sua forma de atender</div>
+          <div class="step-desc">Responde como você responderia — com o nome do paciente e o contexto certo.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-info">
+          <div class="step-title">Você abre o painel e vê tudo feito</div>
+          <div class="step-desc">Confirmações enviadas, agenda cheia, pacientes atendidos. Sem você tocar em nada.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="section" style="padding-top:0;">
+    <div class="section-eyebrow">Planos</div>
+    <h2 class="section-title">Menos que um dia de secretária.</h2>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="plan-name">Basic</div>
+        <div class="plan-price">R$197</div>
+        <div class="plan-period">por mês · até 200 mensagens</div>
+        <ul class="plan-features">
+          <li>Confirmação automática</li>
+          <li>Lembrete 24h antes</li>
+          <li>Link de agendamento</li>
+          <li>Painel da clínica</li>
+        </ul>
+        <button class="plan-btn">Começar grátis</button>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-popular">Mais popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">R$297</div>
+        <div class="plan-period">por mês · até 500 mensagens</div>
+        <ul class="plan-features">
+          <li>Tudo do Basic</li>
+          <li>Reativação de paciente sumido</li>
+          <li>Reagendamento automático</li>
+          <li>Relatório mensal</li>
+          <li>Suporte prioritário</li>
+        </ul>
+        <button class="plan-btn">Começar grátis</button>
+      </div>
+
+      <div class="pricing-card">
+        <div class="plan-name">Ilimitado</div>
+        <div class="plan-price">R$497</div>
+        <div class="plan-period">por mês · mensagens ilimitadas</div>
+        <ul class="plan-features">
+          <li>Tudo do Pro</li>
+          <li>Múltiplos profissionais</li>
+          <li>Personalização avançada da IA</li>
+          <li>Integração com sistemas</li>
+        </ul>
+        <button class="plan-btn">Falar com equipe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">Comece hoje. Sem risco.</div>
+    <div class="cta-sub">14 dias grátis. Sem cartão de crédito. Cancela quando quiser.</div>
+    <button class="btn-primary">Criar minha conta grátis →</button>
+    <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.2);">cobrimed.com · by FIVT</div>
+  </div>
+
+</div>
+
+<!-- ════ DASHBOARD ════ -->
+<div id="dashboard" class="page">
+  <div class="dash-layout">
+
+    <!-- Sidebar -->
+    <div class="dash-sidebar">
+      <div class="ds-logo">
+        <div class="ds-logo-text">COBRI<span>MED</span></div>
+      </div>
+      <div class="ds-nav">
+        <div class="ds-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Visão geral</span>
+        </div>
+        <div class="ds-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Agenda</span>
+          <span class="ds-pill">8</span>
+        </div>
+        <div class="ds-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span>Conversas</span>
+          <span class="ds-pill">3</span>
+        </div>
+        <div class="ds-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span>Pacientes</span>
+        </div>
+        <div class="ds-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span>Config</span>
+        </div>
+      </div>
+      <div class="ds-footer">
+        <div class="ds-clinic">
+          <div class="ds-clinic-av">🦷</div>
+          <div>
+            <div class="ds-clinic-name">Clínica Dra. Ana</div>
+            <div class="ds-clinic-plan">Plano Pro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="dash-main">
+      <div class="dash-topbar">
+        <div class="dash-page-title">Visão geral</div>
+        <div class="ai-pill"><div class="ai-dot"></div>IA ativa</div>
+      </div>
+
+      <div class="dash-content">
+
+        <div class="dash-banner">
+          <div class="db-left">
+            <div class="db-eye">Segunda-feira, 18 mai</div>
+            <div class="db-title">Bom dia, Dra. Ana 👋</div>
+            <div class="db-sub">IA respondeu 14 msgs hoje</div>
+          </div>
+          <div class="db-right">
+            <div class="db-big">R$600</div>
+            <div class="db-small">recuperados pela IA</div>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Consultas hoje</div>
+            <div class="kpi-val">8</div>
+            <div class="kpi-change up">↑ 2 a mais</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Confirmadas</div>
+            <div class="kpi-val">6</div>
+            <div class="kpi-change up">75% de taxa</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Msgs pela IA</div>
+            <div class="kpi-val">14</div>
+            <div class="kpi-change neutral">automático</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Faltas evitadas</div>
+            <div class="kpi-val">3</div>
+            <div class="kpi-change up" style="color:var(--gold);">R$600 salvos</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title">Agenda de hoje</span>
+            <span class="panel-action">Ver tudo →</span>
+          </div>
+          <div class="t-row"><span class="t-time">08:00</span><div class="t-dot" style="background:var(--green)"></div><div class="t-info"><div class="t-name">Maria Silva</div><div class="t-proc">Limpeza dental</div></div><span class="badge badge-ok">Confirmada</span></div>
+          <div class="t-row"><span class="t-time">09:30</span><div class="t-dot" style="background:var(--amber)"></div><div class="t-info"><div class="t-name">João Pereira</div><div class="t-proc">Avaliação</div></div><span class="badge badge-pending">Pendente</span></div>
+          <div class="t-row"><span class="t-time">11:00</span><div class="t-dot" style="background:var(--green)"></div><div class="t-info"><div class="t-name">Carla Mendes</div><div class="t-proc">Canal</div></div><span class="badge badge-ok">Confirmada</span></div>
+          <div class="t-row"><span class="t-time">14:00</span><div class="t-dot" style="background:var(--blue)"></div><div class="t-info"><div class="t-name">Roberto Lima</div><div class="t-proc">Clareamento</div></div><span class="badge badge-new">Novo</span></div>
+          <div class="t-row"><span class="t-time">15:30</span><div class="t-dot" style="background:var(--red)"></div><div class="t-info"><div class="t-name">Fernanda Costa</div><div class="t-proc">Extração</div></div><span class="badge badge-cancel">Cancelada</span></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-title">IA respondeu hoje</span>
+            <span class="badge badge-ai">Cobrimed</span>
+          </div>
+          <div class="c-row unread">
+            <div class="c-av">M</div>
+            <div class="c-info">
+              <div class="c-name">Maria Silva <span class="badge badge-ai" style="font-size:9px;padding:1px 5px;">IA</span></div>
+              <div class="c-msg">Confirmação enviada às 07:45 ✓</div>
+            </div>
+            <div class="c-right"><span class="c-time">07:45</span><div class="c-dot"></div></div>
+          </div>
+          <div class="c-row">
+            <div class="c-av">J</div>
+            <div class="c-info">
+              <div class="c-name">João Pereira</div>
+              <div class="c-msg">Lembrete enviado, aguardando resposta...</div>
+            </div>
+            <div class="c-right"><span class="c-time">08:12</span></div>
+          </div>
+          <div class="c-row unread">
+            <div class="c-av">R</div>
+            <div class="c-info">
+              <div class="c-name">Roberto Lima <span class="badge badge-ai" style="font-size:9px;padding:1px 5px;">IA</span></div>
+              <div class="c-msg">Agendou pelo link sozinho 🎉</div>
+            </div>
+            <div class="c-right"><span class="c-time">09:30</span><div class="c-dot"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ BOOKING ════ -->
+<div id="booking" class="page">
+  <div class="booking-wrap">
+
+    <div class="booking-header">
+      <div class="booking-clinic-logo">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M22 16.5C22 16.5 19 13 12 13C5 13 2 16.5 2 16.5" stroke="#B8860B" stroke-width="1.5" stroke-linecap="round"/>
+          <rect x="9" y="4" width="6" height="9" rx="1" stroke="#B8860B" stroke-width="1.5"/>
+          <path d="M12 4V2M9 7H7M17 7H15" stroke="#B8860B" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="booking-clinic-name">Clínica Dra. Ana</div>
+      <div class="booking-clinic-sub">Odontologia · São Paulo, SP</div>
+    </div>
+
+    <div class="step-indicator">
+      <div class="step-dot done"></div>
+      <div class="step-dot current"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+    </div>
+
+    <!-- Serviço -->
+    <div class="b-card">
+      <div class="b-card-head">
+        <div class="b-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+          Escolha o serviço
+        </div>
+      </div>
+      <div class="b-card-body">
+        <div class="service-list">
+          <div class="service-item selected">
+            <div class="srv-left">
+              <div class="srv-icon">🦷</div>
+              <div>
+                <div class="srv-name">Limpeza dental</div>
+                <div class="srv-time">60 min</div>
+              </div>
+            </div>
+            <div class="srv-price">R$180</div>
+          </div>
+          <div class="service-item">
+            <div class="srv-left">
+              <div class="srv-icon">✨</div>
+              <div>
+                <div class="srv-name">Clareamento</div>
+                <div class="srv-time">90 min</div>
+              </div>
+            </div>
+            <div class="srv-price">R$350</div>
+          </div>
+          <div class="service-item">
+            <div class="srv-left">
+              <div class="srv-icon">🔍</div>
+              <div>
+                <div class="srv-name">Avaliação</div>
+                <div class="srv-time">30 min</div>
+              </div>
+            </div>
+            <div class="srv-price">Grátis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendário -->
+    <div class="b-card">
+      <div class="b-card-head">
+        <div class="b-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Escolha a data
+        </div>
+      </div>
+      <div class="b-card-body">
+        <div class="mini-cal">
+          <div class="cal-nav">
+            <div class="cal-arrow">‹</div>
+            <div class="cal-month">Maio 2026</div>
+            <div class="cal-arrow">›</div>
+          </div>
+          <div class="cal-days-header">
+            <div class="cal-day-label">D</div>
+            <div class="cal-day-label">S</div>
+            <div class="cal-day-label">T</div>
+            <div class="cal-day-label">Q</div>
+            <div class="cal-day-label">Q</div>
+            <div class="cal-day-label">S</div>
+            <div class="cal-day-label">S</div>
+          </div>
+          <div class="cal-grid">
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day past">1</div>
+            <div class="cal-day past">2</div>
+            <div class="cal-day past">3</div>
+            <div class="cal-day past">4</div>
+            <div class="cal-day past">5</div>
+            <div class="cal-day past">6</div>
+            <div class="cal-day past">7</div>
+            <div class="cal-day past">8</div>
+            <div class="cal-day past">9</div>
+            <div class="cal-day past">10</div>
+            <div class="cal-day past">11</div>
+            <div class="cal-day past">12</div>
+            <div class="cal-day past">13</div>
+            <div class="cal-day past">14</div>
+            <div class="cal-day past">15</div>
+            <div class="cal-day past">16</div>
+            <div class="cal-day past">17</div>
+            <div class="cal-day today">18</div>
+            <div class="cal-day available">19</div>
+            <div class="cal-day available">20</div>
+            <div class="cal-day available">21</div>
+            <div class="cal-day selected">22</div>
+            <div class="cal-day available">23</div>
+            <div class="cal-day available">24</div>
+            <div class="cal-day available">25</div>
+            <div class="cal-day available">26</div>
+            <div class="cal-day available">27</div>
+            <div class="cal-day available">28</div>
+            <div class="cal-day available">29</div>
+            <div class="cal-day available">30</div>
+            <div class="cal-day available">31</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horários -->
+    <div class="b-card">
+      <div class="b-card-head">
+        <div class="b-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Horários disponíveis — 22/05
+        </div>
+      </div>
+      <div class="b-card-body">
+        <div class="time-slots">
+          <div class="time-slot unavailable">08:00</div>
+          <div class="time-slot">09:00</div>
+          <div class="time-slot">09:30</div>
+          <div class="time-slot selected">10:00</div>
+          <div class="time-slot">11:00</div>
+          <div class="time-slot unavailable">11:30</div>
+          <div class="time-slot">14:00</div>
+          <div class="time-slot">14:30</div>
+          <div class="time-slot unavailable">15:00</div>
+          <div class="time-slot">15:30</div>
+          <div class="time-slot">16:00</div>
+          <div class="time-slot">17:00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dados -->
+    <div class="b-card">
+      <div class="b-card-head">
+        <div class="b-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Seus dados
+        </div>
+      </div>
+      <div class="b-card-body">
+        <div class="form-field">
+          <label>NOME COMPLETO</label>
+          <input type="text" placeholder="João da Silva"/>
+        </div>
+        <div class="form-field">
+          <label>WHATSAPP</label>
+          <input type="tel" placeholder="(11) 99999-9999"/>
+        </div>
+        <div class="form-field">
+          <label>VOCÊ JÁ É PACIENTE?</label>
+          <select>
+            <option>Primeira vez</option>
+            <option>Já sou paciente</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button class="confirm-btn">Confirmar agendamento →</button>
+
+    <div class="booking-trust">
+      🔒 Seus dados estão protegidos · Powered by Cobrimed
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showPage(name, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// Calendar interaction
+document.querySelectorAll('.cal-day.available, .cal-day.today').forEach(d => {
+  d.addEventListener('click', function() {
+    document.querySelectorAll('.cal-day').forEach(x => x.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+
+// Service selection
+document.querySelectorAll('.service-item').forEach(s => {
+  s.addEventListener('click', function() {
+    document.querySelectorAll('.service-item').forEach(x => x.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+
+// Time slot selection
+document.querySelectorAll('.time-slot:not(.unavailable)').forEach(t => {
+  t.addEventListener('click', function() {
+    document.querySelectorAll('.time-slot').forEach(x => x.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+</script>
+</body>
+</html>
