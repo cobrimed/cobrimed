@@ -569,8 +569,8 @@ body {
     <a class="nav-link" onclick="scrollTo('faq')">FAQ</a>
   </div>
   <div class="nav-actions">
-    <button class="nav-btn-ghost">Entrar</button>
-    <button class="nav-btn-primary">Começar grátis →</button>
+    <a href="/auth.html" class="nav-btn-ghost">Entrar</a>
+    <a href="/auth.html" class="nav-btn-primary">Começar grátis →</a>
   </div>
   <button class="nav-hamburger">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -590,7 +590,7 @@ body {
       </h1>
       <p class="hero-sub">Atendimento 24/7, confirmações automáticas e agenda sempre cheia — sem depender de ninguém.</p>
       <div class="hero-actions">
-        <button class="btn-primary">Começar grátis por 14 dias →</button>
+        <a href="/auth.html" class="btn-primary" style="display:inline-flex;align-items:center;text-decoration:none;">Começar grátis por 14 dias →</a>
         <button class="btn-ghost">Ver como funciona</button>
       </div>
     </div>
@@ -636,14 +636,33 @@ body {
     <h2 class="section-title">Cada dia sem cobertura<br>é dinheiro que não volta.</h2>
     <p class="section-body">Com a redução da jornada, sua clínica vai ficar descoberta mais dias. Sem atendimento no WhatsApp, pacientes não confirmam, não aparecem e você perde.</p>
     <div class="problem-grid">
-      <div class="problem-card"><div style="width:48px;height:48px;background:rgba(192,57,43,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;">📵</div><div class="pc-title">Secretária não veio, WhatsApp parou</div><div class="pc-desc">Paciente manda mensagem, ninguém responde. Ele agenda na concorrência.</div></div>
-      <div class="problem-card"><div style="width:48px;height:48px;background:rgba(176,96,16,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;">🪑</div><div class="pc-title">Cadeira vazia por falta de confirmação</div><div class="pc-desc">Sem lembrete no dia anterior, 1 em cada 4 pacientes simplesmente não aparece.</div></div>
-      <div class="problem-card"><div style="width:48px;height:48px;background:rgba(26,74,138,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;">💸</div><div class="pc-title">Contratar mais pessoa dobra o custo</div><div class="pc-desc">Novo funcionário custa R$3.500+/mês com encargos. O Cobrimed custa menos de R$300.</div></div>
+      <div class="problem-card"><div style="width:44px;height:44px;background:#F0FDF4;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.07-1.35A9.93 9.93 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#25D366"/>
+    <path d="M9 11c0-.55.45-1 1-1h.01M12 11c0-.55.45-1 1-1h.01M15 11c0-.55.45-1 1-1h.01" stroke="#25D366" stroke-width="2"/>
+  </svg>
+</div><div class="pc-title">Secretária não veio, WhatsApp parou</div><div class="pc-desc">Paciente manda mensagem, ninguém responde. Ele agenda na concorrência.</div></div>
+      <div class="problem-card"><div style="width:44px;height:44px;background:#FFF7ED;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
+    <path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0z"/>
+    <path d="M5 18v2"/>
+    <path d="M19 18v2"/>
+  </svg>
+</div><div class="pc-title">Cadeira vazia por falta de confirmação</div><div class="pc-desc">Sem lembrete no dia anterior, 1 em cada 4 pacientes simplesmente não aparece.</div></div>
+      <div class="problem-card"><div style="width:44px;height:44px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="6" width="20" height="14" rx="2"/>
+    <path d="M2 10h20"/>
+    <circle cx="16" cy="15" r="1.5" fill="#3B82F6"/>
+    <path d="M6 15h5"/>
+  </svg>
+</div><div class="pc-title">Contratar mais pessoa dobra o custo</div><div class="pc-desc">Novo funcionário custa R$3.500+/mês com encargos. O Cobrimed custa menos de R$300.</div></div>
     </div>
   </div>
 
   <!-- Como funciona -->
-  <div style="background:var(--sand); padding: 90px 0;">
+  <div style="background:var(--sand); padding: 90px 0; width:100%; margin:0;">
     <div class="section" style="padding-top:0; padding-bottom:0;">
       <div class="section-eyebrow">Como funciona</div>
       <h2 class="section-title">Configura em 5 minutos.<br>Funciona pra sempre.</h2>
@@ -669,7 +688,7 @@ body {
         <div class="testi-text">"Confesso que fiquei desconfiada no começo. Mas no primeiro fim de semana já agendou 3 pacientes sem eu fazer nada."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Ana Luiza"/>
           <div><div class="testi-name">Dra. Ana Luiza</div><div class="testi-role">Dentista · São Paulo, SP</div></div>
         </div>
       </div>
@@ -680,7 +699,7 @@ body {
         <div class="testi-text">"Minha maior preocupação era soar robótico. Mas os pacientes respondem normalmente, como se fosse eu mesma."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <img src="https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Camila"/>
           <div><div class="testi-name">Dra. Camila Ferreira</div><div class="testi-role">Psicóloga · Porto Alegre, RS</div></div>
         </div>
       </div>
@@ -691,7 +710,7 @@ body {
         <div class="testi-text">"Cara, no primeiro mês já me pagou. Cheguei na segunda e tinha consulta marcada do domingo."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av" style="font-size:20px;">👨‍⚕️</div>
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dr. Ricardo"/>
           <div><div class="testi-name">Dr. Ricardo</div><div class="testi-role">Ortopedista · Campinas, SP</div></div>
         </div>
       </div>
@@ -702,7 +721,7 @@ body {
         <div class="testi-text">"Minha cunhada me indicou. Fiquei com preguiça de configurar mas foi bem mais fácil do que eu esperava."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Patricia"/>
           <div><div class="testi-name">Dra. Patricia</div><div class="testi-role">Dermatologista · Rio de Janeiro, RJ</div></div>
         </div>
       </div>
@@ -713,7 +732,7 @@ body {
         <div class="testi-text">"Não sei te dizer o valor exato mas sei que parei de perder paciente por besteira. Isso já vale."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Marcia"/>
           <div><div class="testi-name">Dra. Marcia</div><div class="testi-role">Nutricionista · Florianópolis, SC</div></div>
         </div>
       </div>
@@ -724,7 +743,7 @@ body {
         <div class="testi-text">"Fiz o teste sem pretensão nenhuma. Aí vi que tinha agendado 2 pacientes enquanto eu dormia e falei, tô dentro."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av" style="font-size:20px;">👨‍⚕️</div>
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dr. Thiago"/>
           <div><div class="testi-name">Dr. Thiago</div><div class="testi-role">Fisioterapeuta · Brasília, DF</div></div>
         </div>
       </div>
@@ -755,7 +774,7 @@ body {
             <li>Link de agendamento</li>
             <li>Painel da clínica</li>
           </ul>
-          <button class="plan-btn">Começar grátis</button>
+          <a href="/auth.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Começar grátis</a>
         </div>
         <div class="pricing-card featured">
           <div class="pricing-popular">Mais popular</div>
@@ -770,7 +789,7 @@ body {
             <li>Relatório mensal</li>
             <li>Suporte prioritário</li>
           </ul>
-          <button class="plan-btn">Começar grátis</button>
+          <a href="/auth.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Começar grátis</a>
         </div>
         <div class="pricing-card">
           <div class="plan-name">Ilimitado</div>
@@ -783,7 +802,7 @@ body {
             <li>Personalização avançada</li>
             <li>Integração com sistemas</li>
           </ul>
-          <button class="plan-btn">Falar com a equipe</button>
+          <a href="mailto:contato@cobrimed.com" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Falar com a equipe</a>
         </div>
       </div>
     </div>
@@ -852,10 +871,10 @@ body {
   </div>
 
   <!-- CTA -->
-  <div class="cta-block">
+  <div class="cta-block" style="margin:0;border-radius:0;max-width:100%;width:100%;">
     <div class="cta-title">Sua clínica não pode parar.</div>
     <div class="cta-sub">14 dias grátis. Sem cartão de crédito. Cancela quando quiser.</div>
-    <button class="btn-primary" style="background:linear-gradient(135deg,#C9A84C,#F0D060,#C9A84C);color:var(--navy);padding:16px 36px;font-size:15px;font-weight:700;">Criar minha conta grátis →</button>
+    <a href="/auth.html" class="btn-primary" style="background:linear-gradient(135deg,#C9A84C,#F0D060,#C9A84C);color:var(--navy);padding:16px 36px;font-size:15px;font-weight:700;display:inline-flex;align-items:center;text-decoration:none;">Criar minha conta grátis →</a>
     <div class="cta-note">Mais de 500 clínicas já usam o Cobrimed</div>
   </div>
 
