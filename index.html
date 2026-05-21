@@ -18,9 +18,9 @@
   --gold-br: rgba(201,168,76,0.22);
   --navy:    #0E1820;
   --navy2:   #1A2B3C;
-  --text:    #0E1820;
-  --text2:   #4A5568;
-  --text3:   #9AA5B4;
+  --text:    #080E14;
+  --text2:   #2D3748;
+  --text3:   #6B7A8D;
   --border:  #E8E2D4;
   --border2: #D8D0BC;
   --green:   #1A7A4A;
@@ -272,7 +272,7 @@ body {
 /* Sections */
 .section { padding: 90px 8%; max-width: 1140px; margin: 0 auto; }
 
-.section-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: #C9A84C; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: #8B6914; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
 .section-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
 
 .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 700; color: var(--text); line-height: 1.12; margin-bottom: 16px; }
@@ -282,7 +282,7 @@ body {
 .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .problem-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 26px 22px; transition: box-shadow 0.2s, transform 0.2s; }
 .problem-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
-.pc-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+.pc-icon-wrap { } .pc-icon { font-size: 28px; margin-bottom: 14px; display: block; }
 .pc-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
 .pc-desc { font-size: 13.5px; color: var(--text2); line-height: 1.65; }
 
@@ -497,6 +497,62 @@ body {
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* ── Carousel ── */
+.carousel-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-track .testi-card {
+  min-width: calc(33.333% - 12px);
+  flex-shrink: 0;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.carousel-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text2);
+  transition: all 0.15s;
+}
+.carousel-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.carousel-dot.active { background: var(--gold); width: 18px; border-radius: 3px; }
+
+@media (max-width: 900px) {
+  .carousel-track .testi-card { min-width: calc(100% - 0px); }
+}
 </style>
 </head>
 <body>
@@ -578,9 +634,9 @@ body {
     <h2 class="section-title">Cada dia sem cobertura<br>é dinheiro que não volta.</h2>
     <p class="section-body">Com a redução da jornada, sua clínica vai ficar descoberta mais dias. Sem atendimento no WhatsApp, pacientes não confirmam, não aparecem e você perde.</p>
     <div class="problem-grid">
-      <div class="problem-card"><span class="pc-icon">📵</span><div class="pc-title">Secretária não veio, WhatsApp parou</div><div class="pc-desc">Paciente manda mensagem, ninguém responde. Ele agenda na concorrência.</div></div>
-      <div class="problem-card"><span class="pc-icon">🪑</span><div class="pc-title">Cadeira vazia por falta de confirmação</div><div class="pc-desc">Sem lembrete no dia anterior, 1 em cada 4 pacientes simplesmente não aparece.</div></div>
-      <div class="problem-card"><span class="pc-icon">💸</span><div class="pc-title">Contratar mais pessoa dobra o custo</div><div class="pc-desc">Novo funcionário custa R$3.500+/mês com encargos. O Cobrimed custa menos de R$300.</div></div>
+      <div class="problem-card"><div style="width:48px;height:48px;background:rgba(192,57,43,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;">📵</div><div class="pc-title">Secretária não veio, WhatsApp parou</div><div class="pc-desc">Paciente manda mensagem, ninguém responde. Ele agenda na concorrência.</div></div>
+      <div class="problem-card"><div style="width:48px;height:48px;background:rgba(176,96,16,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;">🪑</div><div class="pc-title">Cadeira vazia por falta de confirmação</div><div class="pc-desc">Sem lembrete no dia anterior, 1 em cada 4 pacientes simplesmente não aparece.</div></div>
+      <div class="problem-card"><div style="width:48px;height:48px;background:rgba(26,74,138,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;">💸</div><div class="pc-title">Contratar mais pessoa dobra o custo</div><div class="pc-desc">Novo funcionário custa R$3.500+/mês com encargos. O Cobrimed custa menos de R$300.</div></div>
     </div>
   </div>
 
@@ -602,38 +658,82 @@ body {
     <div class="section-eyebrow">Depoimentos</div>
     <h2 class="section-title">Clínicas que nunca param.</h2>
     <p class="section-body">Veja o que dizem os profissionais que já usam o Cobrimed no dia a dia.</p>
-    <div class="testimonials-grid">
+    <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+
       <div class="testi-card">
         <div class="testi-badge">Odontologia</div>
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Antes eu perdia em média 4 consultas por mês por falta de confirmação. Agora a agenda tá sempre cheia."</div>
+        <div class="testi-text">"Confesso que fiquei desconfiada no começo. Mas no primeiro fim de semana já agendou 3 pacientes sem eu fazer nada."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av">👩‍⚕️</div>
+          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
           <div><div class="testi-name">Dra. Ana Luiza</div><div class="testi-role">Dentista · São Paulo, SP</div></div>
         </div>
       </div>
+
       <div class="testi-card">
         <div class="testi-badge">Psicologia</div>
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Minha secretária trabalha 5 dias. No dia de folga, o Cobrimed assume. Nenhum paciente fica sem resposta."</div>
+        <div class="testi-text">"Minha maior preocupação era soar robótico. Mas os pacientes respondem normalmente, como se fosse eu mesma."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av">👨‍⚕️</div>
-          <div><div class="testi-name">Dr. Carlos Menezes</div><div class="testi-role">Psicólogo · Curitiba, PR</div></div>
+          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <div><div class="testi-name">Dra. Camila Ferreira</div><div class="testi-role">Psicóloga · Porto Alegre, RS</div></div>
         </div>
       </div>
+
+      <div class="testi-card">
+        <div class="testi-badge">Ortopedia</div>
+        <div class="testi-stars">★★★★☆</div>
+        <div class="testi-text">"Cara, no primeiro mês já me pagou. Cheguei na segunda e tinha consulta marcada do domingo."</div>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-av" style="font-size:20px;">👨‍⚕️</div>
+          <div><div class="testi-name">Dr. Ricardo</div><div class="testi-role">Ortopedista · Campinas, SP</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-badge">Dermatologia</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Minha cunhada me indicou. Fiquei com preguiça de configurar mas foi bem mais fácil do que eu esperava."</div>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <div><div class="testi-name">Dra. Patricia</div><div class="testi-role">Dermatologista · Rio de Janeiro, RJ</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-badge">Nutrição</div>
+        <div class="testi-stars">★★★★☆</div>
+        <div class="testi-text">"Não sei te dizer o valor exato mas sei que parei de perder paciente por besteira. Isso já vale."</div>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-av" style="font-size:20px;">👩‍⚕️</div>
+          <div><div class="testi-name">Dra. Marcia</div><div class="testi-role">Nutricionista · Florianópolis, SC</div></div>
+        </div>
+      </div>
+
       <div class="testi-card">
         <div class="testi-badge">Fisioterapia</div>
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Configuei em menos de 10 minutos. No primeiro mês já recuperei R$800 em consultas que antes ficavam vazias."</div>
+        <div class="testi-text">"Fiz o teste sem pretensão nenhuma. Aí vi que tinha agendado 2 pacientes enquanto eu dormia e falei, tô dentro."</div>
         <div class="testi-divider"></div>
         <div class="testi-author">
-          <div class="testi-av">🧑‍⚕️</div>
-          <div><div class="testi-name">Dra. Fernanda Rios</div><div class="testi-role">Fisioterapeuta · BH, MG</div></div>
+          <div class="testi-av" style="font-size:20px;">👨‍⚕️</div>
+          <div><div class="testi-name">Dr. Thiago</div><div class="testi-role">Fisioterapeuta · Brasília, DF</div></div>
         </div>
       </div>
+
     </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn" onclick="carouselPrev()">‹</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <button class="carousel-btn" onclick="carouselNext()">›</button>
   </div>
 
   <!-- Pricing -->
@@ -813,6 +913,52 @@ function toggleFaq(el) {
 function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// ── Carousel ──
+let carouselIndex = 0;
+const cardsPerView = () => window.innerWidth <= 900 ? 1 : 3;
+
+function getTotal() {
+  return Math.ceil(6 / cardsPerView());
+}
+
+function updateCarousel() {
+  const track = document.getElementById('carouselTrack');
+  const dots = document.getElementById('carouselDots');
+  if (!track || !dots) return;
+
+  const cards = track.querySelectorAll('.testi-card');
+  const cpv = cardsPerView();
+  const cardW = cards[0].offsetWidth + 18;
+  track.style.transform = `translateX(-${carouselIndex * cpv * cardW}px)`;
+
+  // Dots
+  const total = getTotal();
+  dots.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === carouselIndex ? ' active' : '');
+    dot.onclick = () => { carouselIndex = i; updateCarousel(); };
+    dots.appendChild(dot);
+  }
+}
+
+function carouselNext() {
+  carouselIndex = (carouselIndex + 1) % getTotal();
+  updateCarousel();
+}
+
+function carouselPrev() {
+  carouselIndex = (carouselIndex - 1 + getTotal()) % getTotal();
+  updateCarousel();
+}
+
+// Auto advance
+setInterval(carouselNext, 4000);
+window.addEventListener('resize', () => { carouselIndex = 0; updateCarousel(); });
+window.addEventListener('load', updateCarousel);
+setTimeout(updateCarousel, 100);
+
 </script>
 </body>
 </html>
