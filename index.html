@@ -34,7 +34,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; } .nav-link { text-decoration: none; }
 
 body {
   font-family: 'Outfit', sans-serif;
@@ -561,12 +561,12 @@ body {
 
 <!-- ════ NAVBAR ════ -->
 <nav class="navbar">
-  <a class="nav-logo">COBRI<span>MED</span></a>
+  <a href="/" class="nav-logo">COBRI<span>MED</span></a>
   <div class="nav-links">
-    <a class="nav-link" onclick="scrollTo('problema')">Como funciona</a>
-    <a class="nav-link" onclick="scrollTo('depoimentos')">Depoimentos</a>
-    <a class="nav-link" onclick="scrollTo('precos')">Preços</a>
-    <a class="nav-link" onclick="scrollTo('faq')">FAQ</a>
+    <a class="nav-link" href="#como-funciona">Como funciona</a>
+    <a class="nav-link" href="#depoimentos">Depoimentos</a>
+    <a class="nav-link" href="#precos">Preços</a>
+    <a class="nav-link" href="#faq">FAQ</a>
   </div>
   <div class="nav-actions">
     <a href="/auth.html" class="nav-btn-ghost">Entrar</a>
@@ -591,7 +591,7 @@ body {
       <p class="hero-sub">Atendimento 24/7, confirmações automáticas e agenda sempre cheia — sem depender de ninguém.</p>
       <div class="hero-actions">
         <a href="/auth.html" class="btn-primary" style="display:inline-flex;align-items:center;text-decoration:none;">Começar grátis por 14 dias →</a>
-        <button class="btn-ghost">Ver como funciona</button>
+        <a href="#como-funciona" class="btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center;">Ver como funciona</a>
       </div>
     </div>
     <div class="hero-right">
@@ -662,7 +662,7 @@ body {
   </div>
 
   <!-- Como funciona -->
-  <div style="background:var(--sand); padding: 90px 0; width:100%; margin:0;">
+  <div id="como-funciona" style="background:var(--sand); padding: 90px 0; width:100%; margin:0;">
     <div class="section" style="padding-top:0; padding-bottom:0;">
       <div class="section-eyebrow">Como funciona</div>
       <h2 class="section-title">Configura em 5 minutos.<br>Funciona pra sempre.</h2>
@@ -758,7 +758,7 @@ body {
   </div>
 
   <!-- Pricing -->
-  <div id="precos" style="background:var(--sand); padding: 90px 0;">
+  <div id="precos" style="background:var(--sand); padding: 90px 0; width:100%; margin:0;">
     <div class="section" style="padding-top:0; padding-bottom:0;">
       <div class="section-eyebrow">Planos</div>
       <h2 class="section-title">Menos que um único<br>dia de secretária.</h2>
