@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cobrimed — Sua secretária tem folga. Sua clínica, não.</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream:   #FAFAF6;
@@ -234,10 +234,10 @@ body {
 
 .mk-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
 .mk-stat { background: var(--sand); border-radius: 10px; padding: 12px 10px; text-align: center; border: 1px solid var(--border); }
-.mk-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 3px; }
+.mk-val { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 3px; }
 .mk-val.g { color: var(--gold); }
 .mk-val.gr { color: var(--green); }
-.mk-lbl { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text3); letter-spacing: 0.06em; text-transform: uppercase; }
+.mk-lbl { font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 400; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; }
 
 .mk-conv-title { font-family: 'DM Mono', monospace; font-size: 9.5px; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .mk-conv-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -266,8 +266,8 @@ body {
 .stats-strip { background: var(--navy); padding: 26px 8%; display: flex; justify-content: center; gap: 0; }
 .stat-item { flex: 1; max-width: 220px; text-align: center; padding: 0 24px; position: relative; }
 .stat-item + .stat-item::before { content: ''; position: absolute; left: 0; top: 15%; bottom: 15%; width: 1px; background: rgba(255,255,255,0.1); }
-.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--gold-ll); line-height: 1; margin-bottom: 5px; }
-.stat-l { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
+.stat-n { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 700; color: #E8C96A; line-height: 1; margin-bottom: 5px; }
+.stat-l { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
 
 /* Sections */
 .section { padding: 90px 8%; max-width: 1140px; margin: 0 auto; }
@@ -355,7 +355,7 @@ body {
 .pricing-popular { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--white); font-family: 'DM Mono', monospace; font-size: 9.5px; font-weight: 500; padding: 3px 14px; border-radius: 999px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 .plan-name { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px; }
 .featured .plan-name { color: rgba(255,255,255,0.35); }
-.plan-price { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 4px; }
+.plan-price { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 4px; letter-spacing: -0.01em; }
 .featured .plan-price { color: var(--gold-ll); }
 .plan-period { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); margin-bottom: 22px; }
 .featured .plan-period { color: rgba(255,255,255,0.3); }
