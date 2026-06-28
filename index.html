@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cobrimed — Sua secretária tem folga. Sua clínica, não.</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream:   #FAFAF6;
@@ -44,7 +44,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ════════ NAVBAR REAL ════════ */
+/* ════════ NAVBAR ════════ */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -221,52 +221,68 @@ body {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-ll), var(--gold));
-  opacity: 0.6;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent);
 }
 
 .mk-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
 .mk-brand { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: 0.04em; }
-.mk-brand span { background: linear-gradient(135deg, #C9A84C, #F0D060, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.mk-brand span { color: var(--gold); }
 .mk-online { display: flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--green); background: var(--green-bg); border: 1px solid rgba(26,122,74,0.2); border-radius: 999px; padding: 3px 10px; }
 .mk-online-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: blink 2s ease-in-out infinite; }
 
 .mk-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
-.mk-stat { background: var(--sand); border-radius: 10px; padding: 12px 10px; text-align: center; border: 1px solid var(--border); }
-.mk-val { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 3px; }
-.mk-val.g { color: var(--gold); }
+.mk-stat {
+  background: var(--sand);
+  border-radius: 10px; padding: 12px 10px; text-align: center;
+  border: 1px solid var(--border);
+  cursor: pointer; transform-style: preserve-3d;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.mk-stat:hover { border-color: rgba(201,168,76,0.4); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.mk-val { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: var(--text); line-height: 1; margin-bottom: 3px; }
+.mk-val.g { color: #A8843C; }
 .mk-val.gr { color: var(--green); }
 .mk-lbl { font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 400; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; }
 
 .mk-conv-title { font-family: 'DM Mono', monospace; font-size: 9.5px; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .mk-conv-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-.mk-chat { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
-.mk-msg { display: flex; gap: 7px; align-items: flex-end; }
-.mk-msg.out { flex-direction: row-reverse; }
-.mk-av { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
-.mk-av.p { background: var(--sand); border: 1px solid var(--border); }
-.mk-av.c { background: linear-gradient(135deg, var(--gold), #8B6010); }
-.mk-bub { padding: 8px 11px; border-radius: 12px; font-size: 12px; line-height: 1.45; max-width: 190px; }
-.mk-msg.in .mk-bub { background: var(--sand); border: 1px solid var(--border); color: var(--text2); border-bottom-left-radius: 3px; }
-.mk-msg.out .mk-bub { background: var(--gold-bg); border: 1px solid var(--gold-br); color: var(--gold); border-bottom-right-radius: 3px; text-align: right; }
-.mk-ts { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text3); text-align: right; margin-top: 1px; }
+.mk-chat {
+  display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px;
+  background: #1A2332;
+  border-radius: 12px;
+  padding: 12px;
+}
+.mk-msg { display: flex; flex-direction: column; gap: 2px; }
+.mk-msg.out { align-items: flex-end; }
+.mk-msg.in { align-items: flex-start; }
+.mk-bub { padding: 8px 11px; border-radius: 12px; font-size: 12px; line-height: 1.5; max-width: 82%; }
+.mk-msg.in .mk-bub { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border-radius: 4px 12px 12px 12px; }
+.mk-msg.out .mk-bub { background: #2C3E50; color: rgba(255,255,255,0.88); border-radius: 12px 4px 12px 12px; border: 1px solid rgba(255,255,255,0.06); }
+.mk-ts { font-family: 'DM Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.25); }
 
 .mk-agenda { display: flex; flex-direction: column; gap: 5px; }
-.mk-row { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--sand); border-radius: 8px; border: 1px solid var(--border); }
+.mk-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; background: var(--sand);
+  border-radius: 8px; border: 1px solid var(--border);
+  cursor: pointer; transform-style: preserve-3d;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.mk-row:hover { border-color: rgba(201,168,76,0.35); box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
 .mk-t { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); min-width: 34px; }
 .mk-d { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
 .mk-n { font-size: 12px; font-weight: 500; color: var(--text); flex: 1; }
 .mk-pill { font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 999px; }
 .p-ok { background: var(--green-bg); color: var(--green); }
-.p-auto { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-br); }
+.p-auto { background: var(--gold-bg); color: var(--amber); border: 1px solid var(--gold-br); }
 
 /* Stats strip */
 .stats-strip { background: var(--navy); padding: 26px 5%; display: flex; justify-content: center; gap: 0; }
 .stat-item { flex: 1; max-width: 220px; text-align: center; padding: 0 24px; position: relative; }
 .stat-item + .stat-item::before { content: ''; position: absolute; left: 0; top: 15%; bottom: 15%; width: 1px; background: rgba(255,255,255,0.1); }
-.stat-n { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 700; color: #E8C96A; line-height: 1; margin-bottom: 5px; }
+.stat-n { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600; color: #C9A84C; line-height: 1; margin-bottom: 5px; }
 .stat-l { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
 
 /* Sections */
@@ -282,7 +298,7 @@ body {
 .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .problem-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 26px 22px; transition: box-shadow 0.2s, transform 0.2s; }
 .problem-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
-.pc-icon-wrap { } .pc-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+.pc-icon { font-size: 28px; margin-bottom: 14px; display: block; }
 .pc-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
 .pc-desc { font-size: 14.5px; color: var(--text2); line-height: 1.65; }
 
@@ -295,57 +311,18 @@ body {
 .step-desc { font-size: 14.5px; color: var(--text2); line-height: 1.65; }
 
 /* Testimonials */
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; } @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
-
-.testi-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 26px 22px;
-  position: relative;
-  transition: box-shadow 0.2s;
-}
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+.testi-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 26px 22px; position: relative; transition: box-shadow 0.2s; }
 .testi-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-
 .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
-
-.testi-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-style: italic;
-  color: var(--text);
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
+.testi-text { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 18px; }
 .testi-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
-
 .testi-author { display: flex; align-items: center; gap: 12px; }
-
-.testi-av {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  background: var(--sand);
-  border: 1px solid var(--border);
-  flex-shrink: 0;
-}
-
+.testi-av { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; background: var(--sand); border: 1px solid var(--border); flex-shrink: 0; }
 .testi-name { font-size: 13.5px; font-weight: 600; color: var(--text); }
 .testi-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); letter-spacing: 0.06em; margin-top: 2px; }
-
-.testi-badge {
-  position: absolute;
-  top: 22px; right: 22px;
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  color: var(--gold);
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-br);
-  padding: 2px 8px;
-  border-radius: 999px;
-}
+.testi-badge { position: absolute; top: 22px; right: 22px; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold-br); padding: 2px 8px; border-radius: 999px; }
 
 /* Pricing */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -355,8 +332,8 @@ body {
 .pricing-popular { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--white); font-family: 'DM Mono', monospace; font-size: 9.5px; font-weight: 500; padding: 3px 14px; border-radius: 999px; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 .plan-name { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px; }
 .featured .plan-name { color: rgba(255,255,255,0.35); }
-.plan-price { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 4px; letter-spacing: -0.01em; }
-.featured .plan-price { color: var(--gold-ll); }
+.plan-price { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; color: var(--text); line-height: 1; margin-bottom: 4px; }
+.featured .plan-price { color: #C9A84C; }
 .plan-period { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); margin-bottom: 22px; }
 .featured .plan-period { color: rgba(255,255,255,0.3); }
 .plan-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
@@ -373,60 +350,15 @@ body {
 
 /* FAQ */
 .faq-list { display: flex; flex-direction: column; gap: 8px; max-width: 720px; }
-
-.faq-item {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-
+.faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
 .faq-item:hover { border-color: var(--gold-br); }
 .faq-item.open { border-color: var(--gold-br); }
-
-.faq-question {
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-  gap: 16px;
-}
-
-.faq-arrow {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--sand);
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px;
-  color: var(--text2);
-  flex-shrink: 0;
-  transition: all 0.2s;
-}
-
+.faq-question { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--text); gap: 16px; }
+.faq-arrow { width: 24px; height: 24px; border-radius: 50%; background: var(--sand); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text2); flex-shrink: 0; transition: all 0.2s; }
 .faq-item.open .faq-arrow { background: var(--gold-bg); border-color: var(--gold-br); color: var(--gold); transform: rotate(180deg); }
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .faq-item.open .faq-answer { max-height: 200px; }
-
-.faq-answer-inner {
-  padding: 0 20px 18px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text2);
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
-}
+.faq-answer-inner { padding: 0 20px 18px; font-size: 14px; line-height: 1.7; color: var(--text2); border-top: 1px solid var(--border); padding-top: 14px; }
 
 /* CTA */
 .cta-block { background: var(--navy); padding: 90px 5%; text-align: center; position: relative; overflow: hidden; }
@@ -436,44 +368,16 @@ body {
 .cta-note { font-family: 'DM Mono', monospace; font-size: 10.5px; color: rgba(255,255,255,0.2); margin-top: 14px; letter-spacing: 0.06em; }
 
 /* Footer */
-.footer {
-  background: var(--navy);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 40px 5% 32px;
-}
-
-.footer-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 36px;
-}
-
-.footer-brand {}
+.footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 5% 32px; }
+.footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
 .footer-logo { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; margin-bottom: 10px; }
 .footer-logo span { background: linear-gradient(135deg, #C9A84C, #F0D060, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .footer-desc { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.6; max-width: 240px; }
-
 .footer-col-title { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px; }
-
 .footer-links { display: flex; flex-direction: column; gap: 8px; }
 .footer-link { font-size: 13.5px; color: rgba(255,255,255,0.45); cursor: pointer; transition: color 0.15s; text-decoration: none; }
 .footer-link:hover { color: rgba(255,255,255,0.8); }
-
-.footer-bottom {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
+.footer-bottom { max-width: 1140px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-family: 'DM Mono', monospace; font-size: 10.5px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
 .footer-legal { display: flex; gap: 20px; }
 .footer-legal a { font-family: 'DM Mono', monospace; font-size: 10.5px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
@@ -492,74 +396,27 @@ body {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 }
-
 @media (max-width: 600px) {
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
 
-/* ── Carousel ── */
-.carousel-wrap {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 18px;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-.carousel-track .testi-card {
-  min-width: calc(33.333% - 12px);
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.carousel-btn {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border2);
-  background: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--text2);
-  transition: all 0.15s;
-}
+/* Carousel */
+.carousel-wrap { position: relative; overflow: hidden; }
+.carousel-track { display: flex; gap: 18px; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
+.carousel-track .testi-card { min-width: calc(33.333% - 12px); flex-shrink: 0; box-sizing: border-box; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; }
+.carousel-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border2); background: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; color: var(--text2); transition: all 0.15s; }
 .carousel-btn:hover { border-color: var(--gold); color: var(--gold); }
-
-.carousel-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.carousel-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--border2);
-  cursor: pointer;
-  transition: all 0.2s;
-}
+.carousel-dots { display: flex; gap: 6px; }
+.carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border2); cursor: pointer; transition: all 0.2s; }
 .carousel-dot.active { background: var(--gold); width: 18px; border-radius: 3px; }
-
-@media (max-width: 900px) {
-  .carousel-track .testi-card { min-width: calc(100% - 0px); }
-}
+@media (max-width: 900px) { .carousel-track .testi-card { min-width: calc(100% - 0px); } }
 </style>
 </head>
 <body>
 
-<!-- ════ NAVBAR ════ -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="/" class="nav-logo">COBRI<span>MED</span></a>
   <div class="nav-links">
@@ -577,7 +434,6 @@ body {
   </button>
 </nav>
 
-<!-- ════ LANDING ════ -->
 <div id="landing">
 
   <!-- Hero -->
@@ -607,10 +463,10 @@ body {
         </div>
         <div class="mk-conv-title">Atendimento em tempo real</div>
         <div class="mk-chat">
-          <div class="mk-msg in"><div class="mk-av p">👤</div><div class="mk-bub">Oi, queria marcar uma limpeza pra semana que vem</div></div>
-          <div class="mk-msg out"><div class="mk-av c">🦷</div><div><div class="mk-bub">Oi! 😊 Temos quinta às 10h ou sexta às 14h. Qual prefere?</div><div class="mk-ts">agora</div></div></div>
-          <div class="mk-msg in"><div class="mk-av p">👤</div><div class="mk-bub">Quinta perfeito!</div></div>
-          <div class="mk-msg out"><div class="mk-av c">🦷</div><div><div class="mk-bub">Confirmado! Quinta às 10h. Te aviso na véspera 🗓️</div><div class="mk-ts">agora</div></div></div>
+          <div class="mk-msg in"><div class="mk-bub">Oi, queria marcar uma limpeza pra semana que vem</div></div>
+          <div class="mk-msg out"><div class="mk-bub">Boa tarde! Temos quinta às 10h ou sexta às 14h. Qual fica melhor?</div><div class="mk-ts">agora</div></div>
+          <div class="mk-msg in"><div class="mk-bub">Quinta tá ótimo</div></div>
+          <div class="mk-msg out"><div class="mk-bub">Perfeito, quinta às 10h confirmado. Vou te lembrar na véspera.</div><div class="mk-ts">agora</div></div>
         </div>
         <div class="mk-conv-title">Agenda de hoje</div>
         <div class="mk-agenda">
@@ -636,28 +492,9 @@ body {
     <h2 class="section-title">Cada dia sem cobertura<br>é dinheiro que não volta.</h2>
     <p class="section-body">Com a redução da jornada, sua clínica vai ficar descoberta mais dias. Sem atendimento no WhatsApp, pacientes não confirmam, não aparecem e você perde.</p>
     <div class="problem-grid">
-      <div class="problem-card"><div style="width:44px;height:44px;background:#F0FDF4;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.07-1.35A9.93 9.93 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#25D366"/>
-    <path d="M9 11c0-.55.45-1 1-1h.01M12 11c0-.55.45-1 1-1h.01M15 11c0-.55.45-1 1-1h.01" stroke="#25D366" stroke-width="2"/>
-  </svg>
-</div><div class="pc-title">Secretária não veio, WhatsApp parou</div><div class="pc-desc">Paciente manda mensagem, ninguém responde. Ele agenda na concorrência.</div></div>
-      <div class="problem-card"><div style="width:44px;height:44px;background:#FFF7ED;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
-    <path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0z"/>
-    <path d="M5 18v2"/>
-    <path d="M19 18v2"/>
-  </svg>
-</div><div class="pc-title">Cadeira vazia por falta de confirmação</div><div class="pc-desc">Sem lembrete no dia anterior, 1 em cada 4 pacientes simplesmente não aparece.</div></div>
-      <div class="problem-card"><div style="width:44px;height:44px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2" y="6" width="20" height="14" rx="2"/>
-    <path d="M2 10h20"/>
-    <circle cx="16" cy="15" r="1.5" fill="#3B82F6"/>
-    <path d="M6 15h5"/>
-  </svg>
-</div><div class="pc-title">Contratar mais pessoa dobra o custo</div><div class="pc-desc">Novo funcionário custa R$3.500+/mês com encargos. O Cobrimed custa menos de R$300.</div></div>
+      <div class="problem-card"><div style="width:44px;height:44px;background:#F0FDF4;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.07-1.35A9.93 9.93 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="#25D366"/><path d="M9 11c0-.55.45-1 1-1h.01M12 11c0-.55.45-1 1-1h.01M15 11c0-.55.45-1 1-1h.01" stroke="#25D366" stroke-width="2"/></svg></div><div class="pc-title">Secretária não veio, WhatsApp parou</div><div class="pc-desc">Paciente manda mensagem, ninguém responde. Ele agenda na concorrência.</div></div>
+      <div class="problem-card"><div style="width:44px;height:44px;background:#FFF7ED;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg></div><div class="pc-title">Cadeira vazia por falta de confirmação</div><div class="pc-desc">Sem lembrete no dia anterior, 1 em cada 4 pacientes simplesmente não aparece.</div></div>
+      <div class="problem-card"><div style="width:44px;height:44px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><circle cx="16" cy="15" r="1.5" fill="#3B82F6"/><path d="M6 15h5"/></svg></div><div class="pc-title">Contratar mais pessoa dobra o custo</div><div class="pc-desc">Novo funcionário custa R$3.500+/mês com encargos. O Cobrimed custa menos de R$300.</div></div>
     </div>
   </div>
 
@@ -680,81 +517,20 @@ body {
     <h2 class="section-title">Clínicas que nunca param.</h2>
     <p class="section-body">Veja o que dizem os profissionais que já usam o Cobrimed no dia a dia.</p>
     <div class="carousel-wrap">
-    <div class="carousel-track" id="carouselTrack">
-
-      <div class="testi-card">
-        <div class="testi-badge">Odontologia</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Confesso que fiquei desconfiada no começo. Mas no primeiro fim de semana já agendou 3 pacientes sem eu fazer nada."</div>
-        <div class="testi-divider"></div>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Ana Luiza"/>
-          <div><div class="testi-name">Dra. Ana Luiza</div><div class="testi-role">Dentista · São Paulo, SP</div></div>
-        </div>
+      <div class="carousel-track" id="carouselTrack">
+        <div class="testi-card"><div class="testi-badge">Odontologia</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Confesso que fiquei desconfiada no começo. Mas no primeiro fim de semana já agendou 3 pacientes sem eu fazer nada."</div><div class="testi-divider"></div><div class="testi-author"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Ana Luiza"/><div><div class="testi-name">Dra. Ana Luiza</div><div class="testi-role">Dentista · São Paulo, SP</div></div></div></div>
+        <div class="testi-card"><div class="testi-badge">Psicologia</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Minha maior preocupação era soar robótico. Mas os pacientes respondem normalmente, como se fosse eu mesma."</div><div class="testi-divider"></div><div class="testi-author"><img src="https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Camila"/><div><div class="testi-name">Dra. Camila Ferreira</div><div class="testi-role">Psicóloga · Porto Alegre, RS</div></div></div></div>
+        <div class="testi-card"><div class="testi-badge">Ortopedia</div><div class="testi-stars">★★★★☆</div><div class="testi-text">"Cara, no primeiro mês já me pagou. Cheguei na segunda e tinha consulta marcada do domingo."</div><div class="testi-divider"></div><div class="testi-author"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dr. Ricardo"/><div><div class="testi-name">Dr. Ricardo</div><div class="testi-role">Ortopedista · Campinas, SP</div></div></div></div>
+        <div class="testi-card"><div class="testi-badge">Dermatologia</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Minha cunhada me indicou. Fiquei com preguiça de configurar mas foi bem mais fácil do que eu esperava."</div><div class="testi-divider"></div><div class="testi-author"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Patricia"/><div><div class="testi-name">Dra. Patricia</div><div class="testi-role">Dermatologista · Rio de Janeiro, RJ</div></div></div></div>
+        <div class="testi-card"><div class="testi-badge">Nutrição</div><div class="testi-stars">★★★★☆</div><div class="testi-text">"Não sei te dizer o valor exato mas sei que parei de perder paciente por besteira. Isso já vale."</div><div class="testi-divider"></div><div class="testi-author"><img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Marcia"/><div><div class="testi-name">Dra. Marcia</div><div class="testi-role">Nutricionista · Florianópolis, SC</div></div></div></div>
+        <div class="testi-card"><div class="testi-badge">Fisioterapia</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Fiz o teste sem pretensão nenhuma. Aí vi que tinha agendado 2 pacientes enquanto eu dormia e falei, tô dentro."</div><div class="testi-divider"></div><div class="testi-author"><img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dr. Thiago"/><div><div class="testi-name">Dr. Thiago</div><div class="testi-role">Fisioterapeuta · Brasília, DF</div></div></div></div>
       </div>
-
-      <div class="testi-card">
-        <div class="testi-badge">Psicologia</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Minha maior preocupação era soar robótico. Mas os pacientes respondem normalmente, como se fosse eu mesma."</div>
-        <div class="testi-divider"></div>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Camila"/>
-          <div><div class="testi-name">Dra. Camila Ferreira</div><div class="testi-role">Psicóloga · Porto Alegre, RS</div></div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-badge">Ortopedia</div>
-        <div class="testi-stars">★★★★☆</div>
-        <div class="testi-text">"Cara, no primeiro mês já me pagou. Cheguei na segunda e tinha consulta marcada do domingo."</div>
-        <div class="testi-divider"></div>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dr. Ricardo"/>
-          <div><div class="testi-name">Dr. Ricardo</div><div class="testi-role">Ortopedista · Campinas, SP</div></div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-badge">Dermatologia</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Minha cunhada me indicou. Fiquei com preguiça de configurar mas foi bem mais fácil do que eu esperava."</div>
-        <div class="testi-divider"></div>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Patricia"/>
-          <div><div class="testi-name">Dra. Patricia</div><div class="testi-role">Dermatologista · Rio de Janeiro, RJ</div></div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-badge">Nutrição</div>
-        <div class="testi-stars">★★★★☆</div>
-        <div class="testi-text">"Não sei te dizer o valor exato mas sei que parei de perder paciente por besteira. Isso já vale."</div>
-        <div class="testi-divider"></div>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dra. Marcia"/>
-          <div><div class="testi-name">Dra. Marcia</div><div class="testi-role">Nutricionista · Florianópolis, SC</div></div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-badge">Fisioterapia</div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"Fiz o teste sem pretensão nenhuma. Aí vi que tinha agendado 2 pacientes enquanto eu dormia e falei, tô dentro."</div>
-        <div class="testi-divider"></div>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=80&h=80&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0;" alt="Dr. Thiago"/>
-          <div><div class="testi-name">Dr. Thiago</div><div class="testi-role">Fisioterapeuta · Brasília, DF</div></div>
-        </div>
-      </div>
-
     </div>
-  </div>
-
-  <div class="carousel-controls">
-    <button class="carousel-btn" onclick="carouselPrev()">‹</button>
-    <div class="carousel-dots" id="carouselDots"></div>
-    <button class="carousel-btn" onclick="carouselNext()">›</button>
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="carouselPrev()">‹</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="carouselNext()">›</button>
+    </div>
   </div>
 
   <!-- Pricing -->
@@ -763,47 +539,9 @@ body {
       <div class="section-eyebrow">Planos</div>
       <h2 class="section-title">Menos que um único<br>dia de secretária.</h2>
       <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Basic</div>
-          <div class="plan-price">R$197</div>
-          <div class="plan-period">por mês · até 200 mensagens</div>
-          <div class="plan-divider"></div>
-          <ul class="plan-features">
-            <li>Confirmação automática</li>
-            <li>Lembrete 24h antes</li>
-            <li>Link de agendamento</li>
-            <li>Painel da clínica</li>
-          </ul>
-          <a href="/auth.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Começar grátis</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="pricing-popular">Mais popular</div>
-          <div class="plan-name">Pro</div>
-          <div class="plan-price">R$297</div>
-          <div class="plan-period">por mês · até 500 mensagens</div>
-          <div class="plan-divider"></div>
-          <ul class="plan-features">
-            <li>Tudo do Basic</li>
-            <li>Reativação de paciente sumido</li>
-            <li>Reagendamento automático</li>
-            <li>Relatório mensal</li>
-            <li>Suporte prioritário</li>
-          </ul>
-          <a href="/auth.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Começar grátis</a>
-        </div>
-        <div class="pricing-card">
-          <div class="plan-name">Ilimitado</div>
-          <div class="plan-price">R$497</div>
-          <div class="plan-period">por mês · mensagens ilimitadas</div>
-          <div class="plan-divider"></div>
-          <ul class="plan-features">
-            <li>Tudo do Pro</li>
-            <li>Múltiplos profissionais</li>
-            <li>Personalização avançada</li>
-            <li>Integração com sistemas</li>
-          </ul>
-          <a href="mailto:contato@cobrimed.com" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Falar com a equipe</a>
-        </div>
+        <div class="pricing-card"><div class="plan-name">Basic</div><div class="plan-price">R$197</div><div class="plan-period">por mês · até 200 mensagens</div><div class="plan-divider"></div><ul class="plan-features"><li>Confirmação automática</li><li>Lembrete 24h antes</li><li>Link de agendamento</li><li>Painel da clínica</li></ul><a href="/auth.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Começar grátis</a></div>
+        <div class="pricing-card featured"><div class="pricing-popular">Mais popular</div><div class="plan-name">Pro</div><div class="plan-price">R$297</div><div class="plan-period">por mês · até 500 mensagens</div><div class="plan-divider"></div><ul class="plan-features"><li>Tudo do Basic</li><li>Reativação de paciente sumido</li><li>Reagendamento automático</li><li>Relatório mensal</li><li>Suporte prioritário</li></ul><a href="/auth.html" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Começar grátis</a></div>
+        <div class="pricing-card"><div class="plan-name">Ilimitado</div><div class="plan-price">R$497</div><div class="plan-period">por mês · mensagens ilimitadas</div><div class="plan-divider"></div><ul class="plan-features"><li>Tudo do Pro</li><li>Múltiplos profissionais</li><li>Personalização avançada</li><li>Integração com sistemas</li></ul><a href="mailto:contato@cobrimed.com" class="plan-btn" style="display:block;text-align:center;text-decoration:none;">Falar com a equipe</a></div>
       </div>
     </div>
   </div>
@@ -813,60 +551,12 @@ body {
     <div class="section-eyebrow">Perguntas frequentes</div>
     <h2 class="section-title">Tirou a dúvida?</h2>
     <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Funciona com qualquer número de WhatsApp?
-          <div class="faq-arrow">▾</div>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Sim. O Cobrimed conecta com o número de WhatsApp que sua clínica já usa. Não precisa criar um número novo nem mudar nada na rotina.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Precisa deixar o celular ligado o tempo todo?
-          <div class="faq-arrow">▾</div>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Não. O sistema roda na nuvem 24 horas por dia, 7 dias por semana. Mesmo com o celular desligado ou sem internet, o atendimento continua funcionando.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          As respostas parecem robóticas?
-          <div class="faq-arrow">▾</div>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Não. O sistema usa o nome do paciente, lembra o contexto da conversa e responde de forma natural. A maioria dos pacientes não percebe que não é uma pessoa respondendo.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Funciona para qualquer tipo de clínica?
-          <div class="faq-arrow">▾</div>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Sim. Odontologia, psicologia, fisioterapia, nutrição, dermatologia — qualquer profissional de saúde que agenda consultas pode usar o Cobrimed.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Posso cancelar quando quiser?
-          <div class="faq-arrow">▾</div>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Sim. Sem fidelidade, sem multa. Você cancela quando quiser direto pelo painel, em menos de 1 minuto.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Quanto tempo leva pra configurar?
-          <div class="faq-arrow">▾</div>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Em média 5 a 10 minutos. Você cadastra a clínica, conecta o WhatsApp e já começa a funcionar. Sem precisar de conhecimento técnico.</div>
-        </div>
-      </div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Funciona com qualquer número de WhatsApp?<div class="faq-arrow">▾</div></div><div class="faq-answer"><div class="faq-answer-inner">Sim. O Cobrimed conecta com o número de WhatsApp que sua clínica já usa. Não precisa criar um número novo nem mudar nada na rotina.</div></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Precisa deixar o celular ligado o tempo todo?<div class="faq-arrow">▾</div></div><div class="faq-answer"><div class="faq-answer-inner">Não. O sistema roda na nuvem 24 horas por dia, 7 dias por semana. Mesmo com o celular desligado ou sem internet, o atendimento continua funcionando.</div></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">As respostas parecem robóticas?<div class="faq-arrow">▾</div></div><div class="faq-answer"><div class="faq-answer-inner">Não. O sistema usa o nome do paciente, lembra o contexto da conversa e responde de forma natural. A maioria dos pacientes não percebe que não é uma pessoa respondendo.</div></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Funciona para qualquer tipo de clínica?<div class="faq-arrow">▾</div></div><div class="faq-answer"><div class="faq-answer-inner">Sim. Odontologia, psicologia, fisioterapia, nutrição, dermatologia — qualquer profissional de saúde que agenda consultas pode usar o Cobrimed.</div></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Posso cancelar quando quiser?<div class="faq-arrow">▾</div></div><div class="faq-answer"><div class="faq-answer-inner">Sim. Sem fidelidade, sem multa. Você cancela quando quiser direto pelo painel, em menos de 1 minuto.</div></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Quanto tempo leva pra configurar?<div class="faq-arrow">▾</div></div><div class="faq-answer"><div class="faq-answer-inner">Em média 5 a 10 minutos. Você cadastra a clínica, conecta o WhatsApp e já começa a funcionar. Sem precisar de conhecimento técnico.</div></div></div>
     </div>
   </div>
 
@@ -885,39 +575,13 @@ body {
         <div class="footer-logo">COBRI<span>MED</span></div>
         <div class="footer-desc">Funcionário virtual para clínicas de saúde. Atendimento 24/7 no WhatsApp, confirmações automáticas e agenda sempre cheia.</div>
       </div>
-      <div>
-        <div class="footer-col-title">Produto</div>
-        <div class="footer-links">
-          <a class="footer-link">Como funciona</a>
-          <a class="footer-link">Preços</a>
-          <a class="footer-link">Depoimentos</a>
-          <a class="footer-link">FAQ</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Especialidades</div>
-        <div class="footer-links">
-          <a class="footer-link">Odontologia</a>
-          <a class="footer-link">Psicologia</a>
-          <a class="footer-link">Fisioterapia</a>
-          <a class="footer-link">Nutrição</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Contato</div>
-        <div class="footer-links">
-          <a class="footer-link">contato@cobrimed.com</a>
-          <a class="footer-link">Suporte</a>
-          <a class="footer-link">by FIVT</a>
-        </div>
-      </div>
+      <div><div class="footer-col-title">Produto</div><div class="footer-links"><a class="footer-link">Como funciona</a><a class="footer-link">Preços</a><a class="footer-link">Depoimentos</a><a class="footer-link">FAQ</a></div></div>
+      <div><div class="footer-col-title">Especialidades</div><div class="footer-links"><a class="footer-link">Odontologia</a><a class="footer-link">Psicologia</a><a class="footer-link">Fisioterapia</a><a class="footer-link">Nutrição</a></div></div>
+      <div><div class="footer-col-title">Contato</div><div class="footer-links"><a class="footer-link">contato@cobrimed.com</a><a class="footer-link">Suporte</a><a class="footer-link">by FIVT</a></div></div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 Cobrimed · Todos os direitos reservados</div>
-      <div class="footer-legal">
-        <a>Privacidade</a>
-        <a>Termos de uso</a>
-      </div>
+      <div class="footer-legal"><a href="/privacidade.html">Privacidade</a><a href="/termos.html">Termos de uso</a></div>
     </div>
   </footer>
 
@@ -931,42 +595,25 @@ function toggleFaq(el) {
   if (!isOpen) item.classList.add('open');
 }
 
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// ── Carousel ──
+// Carousel
 let carouselIndex = 0;
 let autoTimer = null;
 
-function cardsPerView() {
-  return window.innerWidth <= 900 ? 1 : 3;
-}
-
-function getTotal() {
-  return Math.ceil(6 / cardsPerView());
-}
+function cardsPerView() { return window.innerWidth <= 900 ? 1 : 3; }
+function getTotal() { return Math.ceil(6 / cardsPerView()); }
 
 function updateCarousel() {
   const track = document.getElementById('carouselTrack');
   const dots = document.getElementById('carouselDots');
   if (!track || !dots) return;
-
   const wrap = track.parentElement;
   const wrapW = wrap.offsetWidth;
   const cpv = cardsPerView();
   const gap = 18;
   const cardW = (wrapW - gap * (cpv - 1)) / cpv;
-
-  // Set each card width explicitly
-  track.querySelectorAll('.testi-card').forEach(c => {
-    c.style.minWidth = cardW + 'px';
-    c.style.maxWidth = cardW + 'px';
-  });
-
+  track.querySelectorAll('.testi-card').forEach(c => { c.style.minWidth = cardW + 'px'; c.style.maxWidth = cardW + 'px'; });
   const moveBy = (cardW + gap) * cpv * carouselIndex;
   track.style.transform = `translateX(-${moveBy}px)`;
-
   const total = getTotal();
   dots.innerHTML = '';
   for (let i = 0; i < total; i++) {
@@ -977,25 +624,28 @@ function updateCarousel() {
   }
 }
 
-function carouselNext() {
-  carouselIndex = (carouselIndex + 1) % getTotal();
-  updateCarousel();
-}
-
-function carouselPrev() {
-  carouselIndex = (carouselIndex - 1 + getTotal()) % getTotal();
-  updateCarousel();
-}
-
-function startAuto() {
-  clearInterval(autoTimer);
-  autoTimer = setInterval(carouselNext, 4500);
-}
+function carouselNext() { carouselIndex = (carouselIndex + 1) % getTotal(); updateCarousel(); }
+function carouselPrev() { carouselIndex = (carouselIndex - 1 + getTotal()) % getTotal(); updateCarousel(); }
+function startAuto() { clearInterval(autoTimer); autoTimer = setInterval(carouselNext, 4500); }
 
 window.addEventListener('resize', () => { carouselIndex = 0; updateCarousel(); });
 window.addEventListener('load', () => { updateCarousel(); startAuto(); });
 setTimeout(() => { updateCarousel(); startAuto(); }, 200);
 
+// Tilt 3D nos cards do mockup
+document.querySelectorAll('.mk-stat, .mk-row').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(500px) rotateY(${x*12}deg) rotateX(${-y*12}deg) scale(1.03)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transition = 'transform 0.4s ease';
+    el.style.transform = 'perspective(500px) rotateY(0) rotateX(0) scale(1)';
+  });
+  el.addEventListener('mouseenter', () => { el.style.transition = 'transform 0.1s ease'; });
+});
 </script>
 </body>
 </html>
