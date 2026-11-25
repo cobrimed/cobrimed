@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Uso — Cobrimed</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #FAFAF6;
+    --gold: #1F6B5E;
+    --gold-light: #2E8B7A;
+    --white: #080E14;
+    --muted: #6B7A8D;
+    --border: rgba(31,107,94,0.2);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .hero {
+    padding: 5rem 2rem 3rem;
+    max-width: 760px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero p { color: var(--muted); font-size: 0.95rem; }
+  .update-date { margin-top: 1rem; font-size: 0.8rem; color: var(--muted); opacity: 0.7; }
+  .content { max-width: 760px; margin: 0 auto; padding: 4rem 2rem; }
+  .section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-number { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold); opacity: 0.6; margin-bottom: 0.5rem; }
+  .section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 1.2rem; }
+  .section p { color: rgba(45,55,72,0.75); margin-bottom: 1rem; font-size: 0.95rem; }
+  .section ul { list-style: none; margin: 1rem 0; }
+  .section ul li { color: rgba(45,55,72,0.75); font-size: 0.95rem; padding: 0.4rem 0 0.4rem 1.2rem; position: relative; }
+  .section ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
+  .highlight { background: rgba(31,107,94,0.06); border-left: 2px solid var(--gold); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .highlight p { margin: 0; font-size: 0.9rem; color: rgba(45,55,72,0.8); }
+  .warning { background: rgba(201,68,68,0.06); border-left: 2px solid rgba(201,68,68,0.5); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .warning p { margin: 0; font-size: 0.9rem; color: rgba(45,55,72,0.8); }
+  .contact-box { background: rgba(31,107,94,0.05); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; text-align: center; margin-top: 2rem; }
+  .contact-box h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; margin-bottom: 0.5rem; }
+  .contact-box a { color: var(--gold); text-decoration: none; font-size: 0.95rem; }
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); opacity: 0.6; }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">COBRIMED</a>
+  <a href="/" class="back-link">← Voltar ao site</a>
+</header>
+
+<div class="hero">
+  <div class="tag">Legal</div>
+  <h1>Termos de Uso</h1>
+  <p>Condições para uso da plataforma Cobrimed por clínicas de saúde.</p>
+  <div class="update-date">Última atualização: novembro de 2026</div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-number">01</div>
+    <h2>Aceitação dos termos</h2>
+    <p>Ao criar uma conta e utilizar a plataforma Cobrimed, a clínica contratante declara ter lido, compreendido e concordado com estes Termos de Uso e com nossa Política de Privacidade.</p>
+    <p>Caso não concorde com qualquer disposição, não utilize a plataforma.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">02</div>
+    <h2>O que é o Cobrimed</h2>
+    <p>O Cobrimed é uma plataforma SaaS (Software como Serviço) que oferece atendimento automatizado via WhatsApp para clínicas de saúde, incluindo:</p>
+    <ul>
+      <li>Atendimento automático 24/7 por assistente virtual</li>
+      <li>Confirmação e lembretes de agendamentos</li>
+      <li>Configuração personalizada por especialidade</li>
+      <li>Painel de gestão para a clínica</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-number">03</div>
+    <h2>Responsabilidades da clínica</h2>
+    <p>A clínica contratante é responsável por:</p>
+    <ul>
+      <li>Obter consentimento dos pacientes para atendimento automatizado</li>
+      <li>Garantir que as informações cadastradas são verídicas</li>
+      <li>Uso adequado da plataforma conforme a legislação vigente</li>
+      <li>Configurar corretamente os fluxos de atendimento</li>
+      <li>Manter seus dados de acesso em sigilo</li>
+    </ul>
+    <div class="highlight">
+      <p>A clínica é a <strong>controladora dos dados</strong> de seus pacientes, sendo o Cobrimed apenas operador técnico conforme a LGPD.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">04</div>
+    <h2>Limitação de responsabilidade</h2>
+    <p>O Cobrimed não se responsabiliza por:</p>
+    <ul>
+      <li>Interrupções no serviço do WhatsApp ou Meta</li>
+      <li>Uso indevido da plataforma pela clínica ou seus funcionários</li>
+      <li>Dados incorretos cadastrados pela clínica</li>
+      <li>Decisões clínicas tomadas com base no atendimento automatizado</li>
+      <li>Danos indiretos decorrentes do uso da plataforma</li>
+    </ul>
+    <div class="warning">
+      <p>O sistema é uma ferramenta de apoio administrativo. Não substitui o atendimento médico ou responsabilidade profissional da clínica.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">05</div>
+    <h2>Planos e pagamento</h2>
+    <p>A plataforma é oferecida nos seguintes planos mensais:</p>
+    <ul>
+      <li><strong>Essencial</strong> — R$ 297/mês, até 300 conversas por mês</li>
+      <li><strong>Profissional</strong> — R$ 497/mês, até 800 conversas por mês</li>
+      <li><strong>Clínica</strong> — R$ 997/mês, até 2.500 conversas por mês</li>
+      <li><strong>Ilimitado</strong> — sob consulta</li>
+    </ul>
+    <p>Conversas acima do limite do plano e disparos de marketing acima da franquia incluída podem ser cobrados à parte, conforme informado no momento da contratação.</p>
+    <p>O cancelamento pode ser feito a qualquer momento, sem multa, com efeito a partir do próximo ciclo de cobrança.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">06</div>
+    <h2>Uso proibido</h2>
+    <p>É expressamente proibido utilizar o Cobrimed para:</p>
+    <ul>
+      <li>Envio de spam ou mensagens não solicitadas</li>
+      <li>Atividades ilegais ou que violem direitos de terceiros</li>
+      <li>Compartilhar acesso com terceiros não autorizados</li>
+      <li>Tentar burlar sistemas de segurança da plataforma</li>
+      <li>Uso fora do contexto de clínicas de saúde</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-number">07</div>
+    <h2>Rescisão</h2>
+    <p>O Cobrimed reserva o direito de suspender ou encerrar contas que violem estes termos, com aviso prévio de 48 horas exceto em casos de violação grave.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">08</div>
+    <h2>Foro e legislação</h2>
+    <p>Estes termos são regidos pela legislação brasileira. Fica eleito o foro da Comarca de São Paulo, Estado de São Paulo para resolução de disputas, com renúncia a qualquer outro por mais privilegiado que seja.</p>
+
+    <div class="contact-box">
+      <h3>Dúvidas sobre os termos?</h3>
+      <p style="color: var(--muted); font-size: 0.85rem; margin: 0.5rem 0 1rem;">Nossa equipe está disponível para esclarecimentos:</p>
+      <a href="mailto:contato@cobrimed.com">contato@cobrimed.com</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Cobrimed · <a href="/privacidade">Política de Privacidade</a> · <a href="/termos">Termos de Uso</a></p>
+</footer>
+
+</body>
+</html>

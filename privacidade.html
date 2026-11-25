@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Cobrimed</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #FAFAF6;
+    --gold: #1F6B5E;
+    --gold-light: #2E8B7A;
+    --white: #080E14;
+    --muted: #6B7A8D;
+    --border: rgba(31,107,94,0.2);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 2rem 3rem;
+    max-width: 760px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .update-date {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    opacity: 0.7;
+  }
+
+  /* Content */
+  .content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  .section {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child {
+    border-bottom: none;
+  }
+  .section-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+  }
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    color: var(--white);
+  }
+  .section p {
+    color: rgba(45,55,72,0.75);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .section ul {
+    list-style: none;
+    margin: 1rem 0;
+  }
+  .section ul li {
+    color: rgba(45,55,72,0.75);
+    font-size: 0.95rem;
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    position: relative;
+  }
+  .section ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    opacity: 0.5;
+  }
+
+  /* Highlight box */
+  .highlight {
+    background: rgba(31,107,94,0.06);
+    border-left: 2px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .highlight p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(45,55,72,0.8);
+  }
+
+  /* Contact */
+  .contact-box {
+    background: rgba(31,107,94,0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .contact-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+  .contact-box a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .contact-box a:hover { color: var(--gold-light); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">COBRIMED</a>
+  <a href="/" class="back-link">← Voltar ao site</a>
+</header>
+
+<div class="hero">
+  <div class="tag">Legal</div>
+  <h1>Política de Privacidade</h1>
+  <p>Como tratamos os dados na plataforma Cobrimed, em conformidade com a LGPD.</p>
+  <div class="update-date">Última atualização: novembro de 2026</div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-number">01</div>
+    <h2>Quem somos</h2>
+    <p>O Cobrimed é uma plataforma de atendimento automatizado via WhatsApp desenvolvida para clínicas de saúde brasileiras. Atuamos como <strong>operador de dados</strong> conforme a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
+    <div class="highlight">
+      <p>As clínicas contratantes são as <strong>controladoras dos dados</strong> de seus pacientes, sendo responsáveis pela coleta, uso e consentimento dessas informações.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">02</div>
+    <h2>Dados que coletamos</h2>
+    <p>Para o funcionamento da plataforma, podemos processar os seguintes dados:</p>
+    <ul>
+      <li>Nome e número de telefone (WhatsApp) dos pacientes</li>
+      <li>Histórico das mensagens trocadas com a clínica, para fins de atendimento e agendamento</li>
+      <li>Dados de configuração da clínica (nome, especialidade, horários)</li>
+      <li>Dados de acesso à plataforma (e-mail, senha criptografada)</li>
+    </ul>
+    <p>O Cobrimed não acessa prontuários, diagnósticos ou resultados de exames. Como o paciente conversa livremente com a clínica, as mensagens podem conter informações de saúde que ele mesmo escolher compartilhar (por exemplo, o motivo de uma consulta). Esses dados são tratados somente para atender e agendar, sob responsabilidade da clínica controladora, com acesso restrito e sem uso para outras finalidades.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">03</div>
+    <h2>Como usamos os dados</h2>
+    <p>Os dados são utilizados exclusivamente para:</p>
+    <ul>
+      <li>Prestar o serviço de atendimento automatizado contratado</li>
+      <li>Enviar confirmações de agendamento e lembretes</li>
+      <li>Melhorar a experiência da plataforma</li>
+      <li>Cumprir obrigações legais</li>
+    </ul>
+    <p>Não vendemos, alugamos ou compartilhamos dados com terceiros para fins comerciais.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">04</div>
+    <h2>Com quem compartilhamos</h2>
+    <p>Para operar a plataforma, utilizamos parceiros de infraestrutura:</p>
+    <ul>
+      <li><strong>Supabase</strong> — armazenamento seguro do banco de dados</li>
+      <li><strong>Meta (WhatsApp Business Platform)</strong> — envio e recebimento de mensagens pela API oficial do WhatsApp</li>
+      <li><strong>Provedores de inteligência artificial</strong> — geração das respostas de atendimento, sem uso das conversas para treinar modelos de terceiros</li>
+      <li><strong>Vercel</strong> — hospedagem do sistema</li>
+    </ul>
+    <p>Todos os parceiros seguem padrões de segurança compatíveis com a LGPD.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">05</div>
+    <h2>Seus direitos</h2>
+    <p>Conforme a LGPD, você tem direito a:</p>
+    <ul>
+      <li>Confirmar a existência de tratamento dos seus dados</li>
+      <li>Acessar seus dados pessoais</li>
+      <li>Solicitar correção de dados incompletos ou desatualizados</li>
+      <li>Solicitar a exclusão dos seus dados</li>
+      <li>Revogar o consentimento a qualquer momento</li>
+    </ul>
+    <div class="contact-box">
+      <h3>Exercer seus direitos</h3>
+      <p style="color: var(--muted); font-size: 0.85rem; margin: 0.5rem 0 1rem;">Entre em contato com nosso responsável de dados:</p>
+      <a href="mailto:privacidade@cobrimed.com">privacidade@cobrimed.com</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">06</div>
+    <h2>Segurança</h2>
+    <p>Adotamos medidas técnicas e organizacionais para proteger seus dados, incluindo criptografia em trânsito (HTTPS), controle de acesso por autenticação e armazenamento seguro com provedores certificados.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">07</div>
+    <h2>Alterações nesta política</h2>
+    <p>Podemos atualizar esta política periodicamente. Notificaremos alterações relevantes por e-mail ou aviso na plataforma. O uso continuado após as alterações implica aceitação da nova versão.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Cobrimed · <a href="/termos">Termos de Uso</a> · <a href="/privacidade">Privacidade</a></p>
+</footer>
+
+</body>
+</html>
