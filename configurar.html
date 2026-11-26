@@ -11,15 +11,15 @@
   --cream: #FAFAF6;
   --white: #FFFFFF;
   --sand: #F5F0E8;
-  --gold: #C9A84C;
-  --gold-l: #E8C96A;
-  --gold-bg: rgba(201,168,76,0.08);
-  --gold-br: rgba(201,168,76,0.22);
-  --navy: #0E1820;
-  --navy2: #1A2B3C;
-  --text: #080E14;
-  --text2: #2D3748;
-  --text3: #6B7A8D;
+  --gold: #1F6B5E;
+  --gold-l: #8FD3C0;
+  --gold-bg: rgba(143,211,192,0.10);
+  --gold-br: rgba(143,211,192,0.25);
+  --navy: #0C3B38;
+  --navy2: #14504B;
+  --text: #0E1F1D;
+  --text2: #2D3B39;
+  --text3: #5E6E6A;
   --border: #E8E2D4;
   --border2: #D8D0BC;
   --green: #1A7A4A;
@@ -52,7 +52,7 @@ body {
 
 .sb-logo { padding: 24px 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.07); }
 .sb-logo-text { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; text-decoration: none; display: block; }
-.sb-logo-text span { background: linear-gradient(135deg, #C9A84C, #F0D060, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.sb-logo-text span { background: linear-gradient(135deg, #8FD3C0, #8FD3C0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .sb-nav { padding: 12px 10px; flex: 1; }
 .sb-section-label { font-family: 'DM Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.2); letter-spacing: 0.15em; text-transform: uppercase; padding: 10px 10px 6px; }
 .sb-link { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.12s; margin-bottom: 1px; text-decoration: none; }
@@ -62,9 +62,9 @@ body {
 .sb-badge-new { margin-left: auto; font-size: 9px; font-weight: 600; background: var(--green-bg); color: var(--green); padding: 1px 7px; border-radius: 999px; font-family: 'DM Mono', monospace; border: 1px solid rgba(26,122,74,0.2); }
 .sb-footer { padding: 14px 12px; border-top: 1px solid rgba(255,255,255,0.07); }
 .sb-user { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); margin-bottom: 8px; }
-.sb-user-av { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--gold), #8B6010); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.sb-user-av { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--gold), #0C3B38); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
 .sb-user-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.75); }
-.sb-user-plan { font-size: 10px; color: var(--gold); font-family: 'DM Mono', monospace; }
+.sb-user-plan { font-size: 10px; color: var(--gold-l); font-family: 'DM Mono', monospace; }
 .sb-logout { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; font-size: 12.5px; color: rgba(255,255,255,0.25); cursor: pointer; transition: all 0.12s; }
 .sb-logout:hover { color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); }
 .sb-logout svg { width: 13px; height: 13px; }
@@ -192,7 +192,7 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  box-shadow: 0 0 0 3px rgba(31,107,94,0.14);
   background: var(--white);
 }
 
@@ -347,6 +347,7 @@ body {
   .horarios-grid { grid-template-columns: repeat(4, 1fr); }
   .content { padding: 20px 16px 100px; }
 }
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--text2);cursor:pointer}.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}.check a{color:var(--gold);font-weight:500}.form-card.consent-card.error{border-color:var(--red)}
 </style>
 </head>
 <body>
@@ -506,9 +507,15 @@ body {
         <div class="form-card-title"><span>💬</span> Mensagem de boas-vindas</div>
         <div class="form-group">
           <label>Como o sistema vai se apresentar</label>
-          <textarea id="msgBoasVindas" placeholder="Olá! 😊 Aqui é a assistente da Clínica Dra. Ana. Como posso ajudar você hoje?"></textarea>
+          <textarea id="msgBoasVindas" placeholder="Olá! 😊 Sou a assistente virtual da Clínica Dra. Ana. Como posso ajudar você hoje?"></textarea>
         </div>
       </div>
+
+<!-- Consentimento -->
+<div class="form-card consent-card" id="consentCard">
+<label class="check"><input type="checkbox" id="consent"/><span>Li e concordo com os <a href="/termos" target="_blank" rel="noopener">Termos de uso</a> e a <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>. Entendo que as mensagens dos meus pacientes serão atendidas por uma assistente virtual com IA e que a clínica é a responsável por esses dados, conforme a LGPD.</span></label>
+</div>
+
 
     </div>
   </div>
@@ -641,6 +648,8 @@ async function salvarConfiguracoes() {
 
   if (!nome) { showAlert('Informe o nome da clínica.'); return; }
   if (!especialidade) { showAlert('Selecione a especialidade.'); return; }
+if (!document.getElementById('consent').checked) { document.getElementById('consentCard').classList.add('error'); showAlert('Aceite os Termos de uso e a Política de Privacidade para continuar.'); return; }
+document.getElementById('consentCard').classList.remove('error');
 
   const btn = document.getElementById('saveBtn');
   btn.classList.add('loading');
